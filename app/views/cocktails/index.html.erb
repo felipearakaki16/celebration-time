@@ -1,14 +1,50 @@
-<h1>List of all Cocktails</h1>
+<div class=container>
+  <h1>List of all Cocktails</h1>
 
 
-<ul>
-  <% @cocktails.each do |cocktail| %>
-  <li>
-    <%= link_to cocktail.name, cocktail_path(cocktail.id) %>
-  </li>
-  <% end %>
-</ul>
+  <ul>
+    <% @cocktails.each do |cocktail| %>
+    <li>
+      <%= link_to cocktail.name, cocktail_path(cocktail.id) %>
+    </li>
+    <% end %>
+  </ul>
 
 
 
-<%= link_to 'Add Cocktail', new_cocktail_path %>
+  <%= link_to 'Add Cocktail', new_cocktail_path %>
+</div>
+
+
+
+<div class="master mt-4" style="color: white;">
+
+  <%# div class="top">
+    <img src="https://unsplash.com/photos/dRC574TwkA0" alt="" width="100%" id="master-img">
+    <h1 style="color: white;">Avaiable Cocktails</h1>
+  </div %>
+
+  <div class="box">
+      <% @cocktails.each do |cocktail| %>
+        <div class="card-trip mt-3">
+          <% if cocktail.images.first %>
+            <%= link_to cocktail_path(cocktail) do %>
+              <%= cl_image_tag cocktail.images.first.key, crop: :fill, width: 300 %>
+            <% end %>
+          <% else %>
+            <%= link_to cocktail_path(cocktail) do %>
+              <img src="https://www.amathusdrinks.com/SupplyImages/WF20003/Our%20Brands.jpg">
+            <% end %>
+          <% end %>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= cocktail.name %></h2>
+              <p><%= link_to "See details", cocktail_path(cocktail) %></p>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+  </div>
+
+</div>

@@ -1,38 +1,33 @@
+<div class="container show-container mt-5" style="color: white;">
 
-<h1>Details from: <%= @cocktail.name %> </h1>
+  <% if @cocktail.images.first %>
+    <div class="show show-main" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= cl_image_path(@cocktail.images.first.key, crop: :fill) %>')">
+      <h1><%= @cocktail.name %></h1>
+    </div>
+  <% else %>
+    <div class="show show-main" style="background-image: url('https://unsplash.com/photos/vdstHslc9VQ')">
+      <h1><%= @cocktail.name %></h1>
+    </div>
+  <% end %>
 
-
-<p><%= @cocktail.name %></p>
-<p><%= @cocktail.created_at %></p>
-<p><%= @cocktail.updated_at %></p>
-<br>
-<br>
-<p></p>
-<p></p>
-
-<br>
-<br>
-<table class="table table-bordered">
-        <tbody>
-          <thead>
-            <th>Ingredient</th>
-            <th>Description</th>
-            <th>Action</th>
-          </thead>
-          <% @cocktail.doses.each do |dose| %>
-            <tr>
-              <td><%= dose.ingredient.name %></td>
-              <td><%= dose.description %></td>
-              <td>
-                <%= link_to 'delete', dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-
-<%# <%= render "doses/new", cocktail: @cocktail, dose: @dose %> %>
-<%= render "doses/new", cocktail: @cocktail, dose: @dose %>
+  <div class="show ingredients my-4 p-4">
+    <h3>Ingredients</h3>
+    <%= render "doses/index", doses: @doses %>
+  </div>
 
 
-  <%= link_to "Back to all cocktails", root_path %>
+  <div class="add-ingredients p-4 my-4 show">
+    <h5>Add another ingredient</h5>
+    <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
+  </div>
+
+  <%= link_to "Back to Home", root_path, class: "btn btn-primary my-4" %>
+</div>
+
+
+<style type="text/css">
+  .show-container {
+    max-width: 80%;
+    overflow-x: hidden;
+  }
+</style>

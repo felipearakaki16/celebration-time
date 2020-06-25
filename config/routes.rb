@@ -1,18 +1,12 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: 'cocktails#index'
 
-  get '/cocktails', to: 'cocktails#index', as: 'cocktail'
-  get '/cocktails/new', to: 'cocktails#new', as: 'new_cocktail'
-  post '/cocktails', to: 'cocktails#create'
-  get '/cocktails/:id', to: 'cocktails#show'
+  resources :cocktails, only: %i[show new create] do
+    resources :doses, only: [:create, :index]
+    # resources :reviews, only: [:index, :create, :new]
+  end
+
+  resources :doses, only: [:destroy]
+  # get 'cocktails/:name', to: "cocktails#search", as: :cocktail_search
 end
-
-
-
-
-
-#      Prefix Verb URI                      Pattern                                                                              Controller#Action
-#   cocktails GET  /cocktails(.:format)      cocktails#index
-#             GET  /cocktails/:id(.:format)  cocktails#show
-#             GET  /cocktails/:id(.:format)  cocktails#new
-#             POST /cocktails(.:format)      cocktails#create
