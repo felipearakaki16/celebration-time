@@ -1,0 +1,38 @@
+
+<h1>Details from: <%= @cocktail.name %> </h1>
+
+
+<p><%= @cocktail.name %></p>
+<p><%= @cocktail.created_at %></p>
+<p><%= @cocktail.updated_at %></p>
+<br>
+<br>
+<p></p>
+<p></p>
+
+<br>
+<br>
+<table class="table table-bordered">
+        <tbody>
+          <thead>
+            <th>Ingredient</th>
+            <th>Description</th>
+            <th>Action</th>
+          </thead>
+          <% @cocktail.doses.each do |dose| %>
+            <tr>
+              <td><%= dose.ingredient.name %></td>
+              <td><%= dose.description %></td>
+              <td>
+                <%= link_to 'delete', dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+<%# <%= render "doses/new", cocktail: @cocktail, dose: @dose %> %>
+<%= render "doses/new", cocktail: @cocktail, dose: @dose %>
+
+
+  <%= link_to "Back to all cocktails", root_path %>
