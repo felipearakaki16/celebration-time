@@ -4,11 +4,11 @@
     <%= simple_form_for @cocktail do |f| %>
       <%= f.input :name %>
       <%= f.input :images, as: :file, input_html: { multiple: true }%>
-      <%= f.button :submit, class: 'btn btn-primary' %>
+      <%= f.button :submit, class: 'btn btn-dark' %>
     <% end %>
   </div>
 </div>
 <div class="links">
-  <%= link_to 'Back to list', cocktails_path %>
+  <%= link_to "Back to Cocktails list", root_path, class: "btn btn-dark" %>
 </div>
 

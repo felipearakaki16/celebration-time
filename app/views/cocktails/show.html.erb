@@ -5,23 +5,21 @@
       <h1><%= @cocktail.name %></h1>
     </div>
   <% else %>
-    <div class="show show-main" style="background-image: url('https://unsplash.com/photos/vdstHslc9VQ')">
+    <div class="show show-main" style="background-image: url('https://img.huffingtonpost.com/asset/5d82451624000012277db481.jpeg?cache=qhb5meqc4c&ops=scalefit_720_noupscale&format=webp')">
       <h1><%= @cocktail.name %></h1>
     </div>
   <% end %>
-
   <div class="show ingredients my-4 p-4">
-    <h3>Ingredients</h3>
+    <h3>Doses</h3>
     <%= render "doses/index", doses: @doses %>
   </div>
 
 
   <div class="add-ingredients p-4 my-4 show">
-    <h5>Add another ingredient</h5>
     <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
   </div>
 
-  <%= link_to "Back to Home", root_path, class: "btn btn-primary my-4" %>
+  <%= link_to "Back to Cocktails list", root_path, class: "btn btn-dark m-3" %>
 </div>
 
 

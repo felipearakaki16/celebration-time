@@ -1,13 +1,18 @@
-  
-<ul class="ingredients_list">
-  <% @doses.each do |dose| %>
-    <li class="ingredient-list-item">
-      <%= dose.ingredient.name %>
-      (<%= dose.description %>)
-        <%= link_to "delete", dose_path(dose), method: :delete, data: { confirm: "Are you sure you want to delete this?" } do %>
-                  <i class="fas fa-trash-alt text-white"></i>
-        <% end %>
-      </i>
-    </li>
-  <% end %>
-</ul>
+<table class="table table-bordered">
+  <tbody>
+    <thead>
+      <th>Ingredient</th>
+      <th>Description</th>
+      <th>Action</th>
+    </thead>
+    <% @cocktail.doses.each do |dose| %>
+      <tr>
+        <td><%= dose.ingredient.name %></td>
+        <td><%= dose.description %></td>
+        <td>
+        <%= link_to 'delete', dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

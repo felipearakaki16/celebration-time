@@ -1,49 +1,66 @@
 // Specific CSS for your home-page
 body {
-  background-color: black; 
+  background-image: url("https://images.unsplash.com/photo-1556855810-ac404aa91e85?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80");
+  background-size: cover;
+  max-height: 100vh;
 }
 
-.card-trip {
+.card {
   overflow: hidden;
-  background: #3c3c49;
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+  background: #343A40;
+  box-shadow: 0 0 15px #343A40;
   width: 17rem;
   align-self: center;
   color: white;
   border-radius: 3px;
+  position: relative;
 }
 
-.card-trip a {
+.card a {
   color: white;
 }
 
-.card-trip img {
+.card img {
   height: 200px;
   width: 100%;
   object-fit: cover;
 }
 
-.card-trip h2 {
+.card h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
+// .card p {
+//   font-size: 12px;
+//   opacity: .7;
+//   margin: 0;
+// }
+
+.card .card-infos {
+  padding: 16px;
+  // display: flex;
+  // justify-content: space-between;
+  align-items: flex-start;
+  position: absolute;
 }
 
-.card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+.header {
+  color: white;
+  padding-top: 30px;
+  padding-left: 75px;
 }
+
+.upperbox {
+  display: flex;
+  justify-content: center;
+}
+
 
 .box {
+  // background-color: beige;
+  width: 130vh;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   grid-template-rows: auto;
@@ -51,11 +68,6 @@ body {
   align-items: center;
   padding: 2rem 2rem;
   justify-items: center;
-}
-
-.master {
-  display: grid;
-  grid-template-columns: 2fr 5fr;
 }
 
 .top {
