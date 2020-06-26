@@ -4,9 +4,7 @@ Rails.application.routes.draw do
 
   resources :cocktails, only: %i[show new create] do
     resources :doses, only: [:create, :index]
-    # resources :reviews, only: [:index, :create, :new]
   end
 
   resources :doses, only: [:destroy]
-  # get 'cocktails/:name', to: "cocktails#search", as: :cocktail_search
 end
