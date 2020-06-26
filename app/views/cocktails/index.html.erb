@@ -1,27 +1,28 @@
-<div class="header">
-  <h1>Let's celebrate with a nice cocktail!</h1>
-  <%= link_to 'Add Cocktail', new_cocktail_path, class:"btn btn-dark" %>
-</div>
-
-<div class="upperbox">
-  <div class="box">
-      <% @cocktails.each do |cocktail| %>
-        <div class="card mt-3">
-          <% if cocktail.images.first %>
-            <%= link_to cocktail_path(cocktail) do %>
-              <%= cl_image_tag cocktail.images.first.key, crop: :fill, width: 300 %>
+<div class="upperindex">
+  <div class="header">
+    <h1><i>Let's celebrate with a nice cocktail!</i></h1>
+    <%= link_to 'Add Cocktail', new_cocktail_path, class:"btn btn-dark" %>
+  </div>
+  <div class="upperbox">
+    <div class="box">
+        <% @cocktails.each do |cocktail| %>
+          <div class="card mt-3">
+            <% if cocktail.images.first %>
+              <%= link_to cocktail_path(cocktail) do %>
+                <%= cl_image_tag cocktail.images.first.key, crop: :fill, width: 300 %>
+              <% end %>
+            <% else %>
+              <%= link_to cocktail_path(cocktail) do %>
+                <img src="https://img.huffingtonpost.com/asset/5d82451624000012277db481.jpeg?cache=qhb5meqc4c&ops=scalefit_720_noupscale&format=webp">
+              <% end %>
             <% end %>
-          <% else %>
-            <%= link_to cocktail_path(cocktail) do %>
-              <img src="https://img.huffingtonpost.com/asset/5d82451624000012277db481.jpeg?cache=qhb5meqc4c&ops=scalefit_720_noupscale&format=webp">
-            <% end %>
-          <% end %>
-          <div class="card-infos">
-            <div>
-              <h2><%= cocktail.name %></h2>
+            <div class="card-infos">
+              <div>
+                <h2><%= cocktail.name %></h2>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+    </div>
   </div>
 </div>
